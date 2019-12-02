@@ -10,12 +10,11 @@ spec:
     - port: 5003
       protocol: TCP
       targetPort: 5003
-      nodePort: 5003
   selector:
     app: rps
     tier: bot
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bot-service
@@ -24,6 +23,10 @@ metadata:
 spec:
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: rps
+      tier: bot
   template:
     metadata:
       labels:

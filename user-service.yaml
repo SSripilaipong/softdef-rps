@@ -10,12 +10,11 @@ spec:
     - port: 5001
       protocol: TCP
       targetPort: 5001
-      nodePort: 5001
   selector:
     app: rps
     tier: user
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-service
@@ -24,6 +23,10 @@ metadata:
 spec:
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: rps
+      tier: user
   template:
     metadata:
       labels:

@@ -6,16 +6,17 @@ metadata:
   labels:
     app: rps
 spec:
+  type: NodePort
   ports:
     - port: 5000
       protocol: TCP
       targetPort: 5000
-      nodePort: 5000
+      nodePort: 30000
   selector:
     app: rps
     tier: front
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-service
@@ -24,6 +25,10 @@ metadata:
 spec:
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: rps
+      tier: front
   template:
     metadata:
       labels:
@@ -32,6 +37,7 @@ spec:
     spec:
       containers:
         - image: shsnail/softdef-rps-front:latest
+          imagePullPolicy: Always
           name: front-service
           ports:
             - containerPort: 5000

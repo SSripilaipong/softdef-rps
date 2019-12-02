@@ -10,12 +10,11 @@ spec:
     - port: 5002
       protocol: TCP
       targetPort: 5002
-      nodePort: 5002
   selector:
     app: rps
     tier: back
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: back-service
@@ -24,6 +23,10 @@ metadata:
 spec:
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: rps
+      tier: back
   template:
     metadata:
       labels:
