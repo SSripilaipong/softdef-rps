@@ -14,8 +14,9 @@ def submit():
     action = request.args.get('action')
     if action not in ('Rock', 'Paper', 'Scissor'):
         return jsonify({'error': 'unknown action'})
-
-    return jsonify(requests.get('http://back-service:5002', verify=False, params={'action': action}).json())
+    response = jsonify(requests.get('http://back-service:5002', verify=False, params={'action': action}).json())
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 if __name__ == '__main__':
