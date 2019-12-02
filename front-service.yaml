@@ -33,14 +33,5 @@ spec:
       containers:
         - image: shsnail/softdef-rps-front:latest
           name: front-service
-          env:
-            - name: FRONT_IP
-              value: front-service:5000
-            - name: USER_IP
-              value: user-service:5001
-            - name: BACK_IP
-              value: back-service:5002
-            - name: BOT_IP
-              value: bot-service:5003
           ports:
             - containerPort: 5000
