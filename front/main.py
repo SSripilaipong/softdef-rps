@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask import render_template
 from flask_cors import CORS
@@ -10,7 +9,7 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', USER_IP=os.getenv('USER_IP'))
+    return render_template('index.html', USER_IP='http://user-service:5001')
 
 
 if __name__ == '__main__':

@@ -1,4 +1,3 @@
-import os
 import requests
 from flask import Flask
 from flask import jsonify
@@ -16,8 +15,8 @@ def submit():
     if action not in ('Rock', 'Paper', 'Scissor'):
         return jsonify({'error': 'unknown action'})
 
-    return jsonify(requests.get('http://' + os.getenv('BACK_IP'), verify=False, params={'action': action}).json())
+    return jsonify(requests.get('http://back-service:5002', verify=False, params={'action': action}).json())
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)

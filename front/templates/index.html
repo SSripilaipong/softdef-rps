@@ -18,7 +18,7 @@
             $.ajax({
                 type: "GET",
                 crossOrigin: true,
-                url: "http://{{ USER_IP }}",
+                url: "{{ USER_IP }}",
                 success: function(result){
                     $('#bot').text('competitor: ' + result.bot);
                     $('#result').text('result: ' + result.result);

@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask import request
 from flask import jsonify
@@ -23,11 +22,11 @@ def compare(user, bot):
 @app.route('/', methods=['GET'])
 def evaluate():
     user_action = request.args.get('action')
-    bot_action = requests.get('http://' + os.getenv('BOT_IP'), verify=False).json()['action']
+    bot_action = requests.get('http://bot-service:5003', verify=False).json()['action']
 
     return jsonify({'user': user_action, 'bot': bot_action,
                     'result': compare(user_action, bot_action)})
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5002)
