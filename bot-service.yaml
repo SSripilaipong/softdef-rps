@@ -34,7 +34,7 @@ spec:
         tier: bot
     spec:
       containers:
-        - image: shsnail/softdef-rps-user:latest
+        - image: shsnail/softdef-rps-bot:latest
           name: bot-service
           ports:
             - containerPort: 5003

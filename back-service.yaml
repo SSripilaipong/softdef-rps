@@ -34,7 +34,7 @@ spec:
         tier: back
     spec:
       containers:
-        - image: shsnail/softdef-rps-user:latest
+        - image: shsnail/softdef-rps-back:latest
           name: back-service
           ports:
             - containerPort: 5002
