@@ -17,7 +17,6 @@
         $('button').click(function(){
             $.ajax({
                 type: "GET",
-<!--                crossOrigin: true,-->
                 url: "/submit",
                 success: function(result){
                     $('#bot').text('competitor: ' + result.bot);
