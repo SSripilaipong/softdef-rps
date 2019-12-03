@@ -15,6 +15,9 @@
 <script>
     $(document).ready(function(){
         $('button').click(function(){
+            $('#bot').text('competitor: ');
+            $('#result').text('result: ');
+
             $.ajax({
                 type: "GET",
                 url: "/submit",
