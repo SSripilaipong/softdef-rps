@@ -17,8 +17,8 @@
         $('button').click(function(){
             $.ajax({
                 type: "GET",
-                crossOrigin: true,
-                url: "{{ USER_IP }}",
+<!--                crossOrigin: true,-->
+                url: "/submit",
                 success: function(result){
                     $('#bot').text('competitor: ' + result.bot);
                     $('#result').text('result: ' + result.result);

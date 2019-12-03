@@ -1,5 +1,5 @@
-from flask import Flask
-from flask import render_template
+import requests
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 
 
@@ -9,7 +9,14 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', USER_IP='http://user-service:5001')
+    return render_template('index.html')
+
+
+@app.route('/submit', methods=['GET', 'OPTIONS'])
+def submit():
+    action = request.args.get('action')
+    response = jsonify(requests.get('http://user-service:5001', verify=False, params={'action': action}).json())
+    return response
 
 
 if __name__ == '__main__':
