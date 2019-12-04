@@ -194,13 +194,13 @@
             ```
         3. Copy the certificate to each nodes
             ```
-            scp ca.pem kubernetes.pem kubernetes-key.pem master1@192.168.0.123:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem ppp@192.168.0.234:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem loadBalancer@192.168.0.222:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem ppp@192.168.0.112:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem raspberrypi@192.168.0.111:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem {DOCKER_USER}@192.168.0.124:~
-            scp ca.pem kubernetes.pem kubernetes-key.pem him@192.168.0.114:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.123:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.234:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.222:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.112:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.111:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.124:~
+            scp ca.pem kubernetes.pem kubernetes-key.pem {USERNAME}@192.168.0.114:~
             ```
     - Prepare the `192.168.0.123`, `192.168.0.234` machine
         1. Get administrator privileges
